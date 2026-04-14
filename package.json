@@ -1,0 +1,16 @@
+{
+  "name": "distributed-task-scheduler-root",
+  "version": "1.0.0",
+  "description": "Orchestrator for the Antigravity Distributed Task System",
+  "scripts": {
+    "install:all": "npm install && cd backend/server && npm install && cd ../worker && npm install && cd ../../frontend && npm install",
+    "build:frontend": "cd frontend && npm run build",
+    "start:backend": "cd backend/server && node src/index.js",
+    "start:worker": "cd backend/worker && node src/client.js",
+    "dev": "concurrently \"npm run start:backend\" \"cd frontend && npm run dev\"",
+    "production": "npm run build:frontend && npm run start:backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
